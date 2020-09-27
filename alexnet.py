@@ -31,15 +31,18 @@ class AlexNet(torch.nn.Module):
             torch.nn.MaxPool2d(kernel_size=3, stride=2),
 
             # Layer 5 - Convolution Layer - Nx256x13x13 -> Nx384x13x13
-            torch.nn.Conv2d(in_channels=256, out_channels=384, kernel_size=5),
+            torch.nn.Conv2d(in_channels=256, out_channels=384,
+                            kernel_size=3, padding=1),
             torch.nn.ReLU(inplace=True),
 
             # Layer 6 - Convolution Layer - Nx384x13x13 -> Nx384x13x13
-            torch.nn.Conv2d(in_channels=384, out_channels=384, kernel_size=5),
+            torch.nn.Conv2d(in_channels=384, out_channels=384,
+                            kernel_size=3, padding=1),
             torch.nn.ReLU(inplace=True),
 
             # Layer 7 - Convolution Layer - Nx384x13x13 -> Nx256x13x13
-            torch.nn.Conv2d(in_channels=384, out_channels=256, kernel_size=5),
+            torch.nn.Conv2d(in_channels=384, out_channels=256,
+                            kernel_size=3, padding=1),
             torch.nn.ReLU(inplace=True),
 
             # Layer 8 - Max Pooling Layer - Nx256x13x13 -> Nx256x6x6
